@@ -4,7 +4,7 @@
         <img class="logo" src="../assets/images/logo.png">
         <p class="welcome">欢迎使用 vue</p>
         <div v-html="content"></div>
-        <router-link :to="{name:'shop'}">shop</router-link>
+        <p @click="go('/shop')">shop</p>
     </div>
 </template>
 
@@ -13,11 +13,15 @@
     import { mapState } from 'vuex';
     import cTitle from 'components/title';
 
+    import base from 'components/common/base'
+
     export default {
+        extends: base,
         data () {
             return {
                 title: 'Hello Vue!',
-                content: ''
+                content: '',
+                selfName: 'Hello'
             }
         },
         methods: {
